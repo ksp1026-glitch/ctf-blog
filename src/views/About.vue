@@ -18,7 +18,7 @@
               </div>
               <div class="stat">
                 <span class="stat-value">{{ stats.ctfs }}</span>
-                <span class="stat-label">参赛</span>
+                <span class="stat-label">学习阶段</span>
               </div>
               <div class="stat">
                 <span class="stat-value">{{ stats.learningDays }}</span>

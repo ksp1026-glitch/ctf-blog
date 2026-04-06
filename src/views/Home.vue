@@ -26,7 +26,7 @@
             </div>
             <div class="stat-item">
               <span class="stat-number">{{ stats.ctfs }}</span>
-              <span class="stat-label">参赛</span>
+              <span class="stat-label">学习</span>
             </div>
           </div>
           <div class="hero-actions">
@@ -120,7 +120,7 @@
     <!-- CTF Timeline -->
     <section class="timeline">
       <div class="container">
-        <h2 class="section-title">🏆 CTF参赛记录</h2>
+        <h2 class="section-title">📚 CTF学习之路</h2>
         <div class="timeline-list">
           <div 
             v-for="(event, index) in ctfEvents" 
