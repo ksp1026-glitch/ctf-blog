@@ -287,6 +287,8 @@ onMounted(() => {
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   border: 1px solid var(--border-color);
+  /* 确保代码窗口不溢出 */
+  max-width: 100%;
 }
 
 .window-header {
@@ -317,10 +319,22 @@ onMounted(() => {
   padding: 20px;
   font-family: 'Fira Code', monospace;
   font-size: 1.1rem;
+  /* 确保内容不溢出 */
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.window-content pre {
+  margin: 0;
+  white-space: pre;
+  word-break: normal;
 }
 
 .window-content code {
   color: var(--primary-color);
+  white-space: pre;
+  word-break: normal;
 }
 
 .typing-cursor {
@@ -736,17 +750,27 @@ onMounted(() => {
   }
   
   .code-window {
-    margin: 0 -5px;
+    margin: 0;
+    max-width: 100%;
   }
   
   .window-content {
     padding: 12px;
     font-size: 0.8rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
   
   .window-content pre {
-    white-space: pre-wrap;
-    word-break: break-all;
+    white-space: pre;
+    word-break: normal;
+    margin: 0;
+  }
+  
+  .window-content code {
+    white-space: pre;
+    word-break: normal;
+    font-size: 0.8rem;
   }
   
   .articles-grid {

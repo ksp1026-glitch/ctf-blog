@@ -136,6 +136,10 @@ watch(() => route.params.id, () => {
 .article-detail {
   padding: 100px 0 60px;
   min-height: 100vh;
+  /* 确保文章详情页不溢出 */
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 /* Loading */
@@ -222,12 +226,19 @@ watch(() => route.params.id, () => {
   max-width: 800px;
   margin: 0 auto 60px;
   padding: 40px;
+  /* 确保内容不溢出 */
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .content-body {
   color: var(--text-primary);
   line-height: 1.8;
   font-size: 1.05rem;
+  /* 确保内容不溢出 */
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .content-body :deep(h1) {
@@ -254,13 +265,17 @@ watch(() => route.params.id, () => {
   margin-bottom: 20px;
 }
 
-.content-body :deep(pre.code-block) {
+/* 代码块样式 - 关键修复横向滚动 */
+.content-body :deep(pre) {
   background: #0d0d1a;
   border-radius: 8px;
   padding: 20px;
-  overflow-x: auto;
   margin: 20px 0;
   border-left: 4px solid var(--primary-color);
+  /* 横向滚务关键设置 */
+  overflow-x: auto;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
 }
 
 .content-body :deep(pre code) {
@@ -268,6 +283,23 @@ watch(() => route.params.id, () => {
   font-size: 0.95rem;
   color: var(--primary-color);
   line-height: 1.6;
+  /* 关键：防止代码换行破坏格式 */
+  white-space: pre;
+  word-break: normal;
+  word-wrap: normal;
+  display: block;
+}
+
+/* marked 生成的 code-block 类 */
+.content-body :deep(pre.code-block) {
+  background: #0d0d1a;
+  border-radius: 8px;
+  padding: 20px;
+  overflow-x: auto;
+  margin: 20px 0;
+  border-left: 4px solid var(--primary-color);
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
 }
 
 .content-body :deep(code.inline-code) {
@@ -294,17 +326,21 @@ watch(() => route.params.id, () => {
 }
 
 /* marked 生成的额外样式 */
+/* 链接样式 - 确保长链接不溢出 */
 .content-body :deep(a) {
   color: var(--primary-color);
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: border-color 0.3s ease;
+  word-break: break-all;
+  overflow-wrap: break-word;
 }
 
 .content-body :deep(a:hover) {
   border-bottom-color: var(--primary-color);
 }
 
+/* 表格样式 - 添加横向滚动 */
 .content-body :deep(table) {
   width: 100%;
   border-collapse: collapse;
@@ -312,6 +348,16 @@ watch(() => route.params.id, () => {
   background: var(--bg-card);
   border-radius: 8px;
   overflow: hidden;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+}
+
+.content-body :deep(thead),
+.content-body :deep(tbody) {
+  display: table;
+  width: 100%;
 }
 
 .content-body :deep(th),
@@ -438,6 +484,9 @@ watch(() => route.params.id, () => {
 @media (max-width: 768px) {
   .article-detail {
     padding: 80px 0 40px;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
   
   .article-header {
@@ -462,6 +511,9 @@ watch(() => route.params.id, () => {
   .article-content {
     padding: 20px;
     margin-bottom: 40px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
   
   .content-body {
@@ -488,13 +540,25 @@ watch(() => route.params.id, () => {
     margin-bottom: 15px;
   }
   
+  .content-body :deep(pre),
   .content-body :deep(pre.code-block) {
     padding: 15px;
     margin: 15px 0;
+    overflow-x: auto;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    /* 确保代码块在容器内 */
+    box-sizing: border-box;
   }
   
   .content-body :deep(pre code) {
     font-size: 0.8rem;
+    white-space: pre;
+    word-break: normal;
+  }
+  
+  .content-body :deep(code) {
+    font-size: 0.85rem;
   }
   
   .content-body :deep(ul) {
@@ -511,6 +575,20 @@ watch(() => route.params.id, () => {
     overflow-x: auto;
     white-space: nowrap;
     font-size: 0.9rem;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+  }
+  
+  .content-body :deep(thead),
+  .content-body :deep(tbody) {
+    display: table;
+    width: 100%;
+  }
+  
+  .content-body :deep(th),
+  .content-body :deep(td) {
+    padding: 10px 12px;
+    white-space: nowrap;
   }
   
   .content-body :deep(th),
@@ -563,6 +641,9 @@ watch(() => route.params.id, () => {
 @media (max-width: 480px) {
   .article-detail {
     padding: 70px 0 30px;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
   
   .article-title {
@@ -571,10 +652,17 @@ watch(() => route.params.id, () => {
   
   .article-content {
     padding: 15px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    border-radius: 12px;
   }
   
   .content-body {
     font-size: 0.9rem;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
   
   .content-body :deep(h1) {
@@ -589,8 +677,40 @@ watch(() => route.params.id, () => {
     font-size: 1rem;
   }
   
+  .content-body :deep(pre),
+  .content-body :deep(pre.code-block) {
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 6px;
+    border-left-width: 3px;
+  }
+  
   .content-body :deep(pre code) {
     font-size: 0.75rem;
+    white-space: pre;
+    word-break: normal;
+  }
+  
+  .content-body :deep(code) {
+    font-size: 0.8rem;
+  }
+  
+  /* 确保小屏幕下所有元素不溢出 */
+  .content-body :deep(p),
+  .content-body :deep(li),
+  .content-body :deep(span) {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+  
+  .content-body :deep(a) {
+    word-break: break-all;
+  }
+  
+  .content-body :deep(th),
+  .content-body :deep(td) {
+    padding: 8px 10px;
+    font-size: 0.85rem;
   }
   
   .nav-card {

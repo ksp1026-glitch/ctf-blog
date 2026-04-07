@@ -20,16 +20,27 @@ import Footer from './components/Footer.vue'
   flex-direction: column;
   background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #16213e 100%);
   color: #e0e0e0;
+  /* 确保应用不溢出 */
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 .main-content {
   flex: 1;
   padding-top: 60px;
+  /* 确保主内容区域不溢出 */
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 @media (max-width: 768px) {
   .main-content {
     padding-top: 50px;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 }
 
@@ -42,6 +53,9 @@ import Footer from './components/Footer.vue'
 body {
   font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
   line-height: 1.6;
+  /* 确保body不溢出 */
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 /* 滚动条样式 */
@@ -60,5 +74,13 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #00cc6a;
+}
+
+/* 移动端滚动条 */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
 }
 </style>

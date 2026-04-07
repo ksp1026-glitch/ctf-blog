@@ -170,6 +170,10 @@ const goToArticle = (id) => {
 .articles-page {
   padding: 100px 0 60px;
   min-height: 100vh;
+  /* 确保页面不溢出 */
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 .page-header {
@@ -413,6 +417,9 @@ const goToArticle = (id) => {
 @media (max-width: 768px) {
   .articles-page {
     padding: 80px 0 40px;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
   
   .page-header {
@@ -504,6 +511,9 @@ const goToArticle = (id) => {
 @media (max-width: 480px) {
   .articles-page {
     padding: 70px 0 30px;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
   
   .page-title {
@@ -524,6 +534,11 @@ const goToArticle = (id) => {
     flex-wrap: nowrap;
     padding-bottom: 5px;
     -webkit-overflow-scrolling: touch;
+    /* 确保滚动区域不溢出 */
+    max-width: 100%;
+    margin: 0 -12px;
+    padding-left: 12px;
+    padding-right: 12px;
   }
   
   .category-filters::-webkit-scrollbar {
@@ -533,6 +548,12 @@ const goToArticle = (id) => {
   .filter-btn {
     white-space: nowrap;
     flex-shrink: 0;
+  }
+  
+  .article-item {
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
   }
   
   .article-item {

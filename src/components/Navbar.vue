@@ -164,6 +164,9 @@ onUnmounted(() => {
     transition: transform 0.3s ease;
     z-index: 999;
     border-bottom: 1px solid var(--border-color);
+    /* 确保导航不溢出 */
+    max-width: 100vw;
+    box-sizing: border-box;
   }
   
   .nav-links.active {
@@ -177,6 +180,8 @@ onUnmounted(() => {
   .nav-link {
     padding: 12px 16px;
     font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
 </style>

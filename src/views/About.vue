@@ -180,6 +180,10 @@ const tools = [
 .about-page {
   padding: 100px 0 60px;
   min-height: 100vh;
+  /* 确保页面不溢出 */
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 /* Hero */
@@ -556,6 +560,9 @@ const tools = [
 @media (max-width: 768px) {
   .about-page {
     padding: 80px 0 40px;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
   
   .about-hero {
@@ -720,6 +727,9 @@ const tools = [
 @media (max-width: 480px) {
   .about-page {
     padding: 70px 0 30px;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
   
   .profile-card {
