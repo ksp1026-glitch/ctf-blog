@@ -54,9 +54,38 @@ SELECT * FROM users WHERE username = 'admin' OR '1'='1' AND password = 'xxx'
 ### 防御方法
 
 1. **使用预处理语句（Prepared Statements）**
+   
+   预处理语句将SQL代码和数据分离，从根本上防止注入。
+   
+   \`\`\`php
+   // PHP PDO 示例
+   $stmt = $pdo->prepare('SELECT * FROM users WHERE id = ?');
+   $stmt->execute([$userId]);
+   \`\`\`
+
 2. **输入验证和过滤**
+   
+   对用户输入进行严格的类型检查、长度限制和字符过滤。
+   
+   - 使用白名单验证允许的字符
+   - 对特殊字符进行转义（如单引号、双引号）
+   - 限制输入长度
+
 3. **最小权限原则**
+   
+   数据库账号只分配必要的权限：
+   - 应用账号只给查询权限，不给删除/修改权限
+   - 避免使用 root 或 sa 账号连接数据库
+   - 不同功能使用不同的数据库账号
+
 4. **使用ORM框架**
+   
+   ORM框架通常内置了防注入机制：
+   
+   \`\`\`python
+   # Django ORM 示例
+   user = User.objects.filter(id=user_id).first()
+   \`\`\`
 
 ## 总结
 
@@ -357,7 +386,7 @@ system("ping -c 4 " . $ip);
 **空格绕过：**
 \`\`\`
 cat\${IFS}/etc/passwd
-cat$IFS$9/etc/passwd
+cat\$IFS\$9/etc/passwd
 cat</etc/passwd
 \`\`\`
 
@@ -651,10 +680,25 @@ export default defineConfig({
 4. **看官方文档**：GitHub Actions的文档其实挺清楚的
 
 
-**参考资源：**
+## 参考资源
+
 - [GitHub Pages 官方文档](https://docs.github.com/en/pages)
 - [GitHub Actions 官方文档](https://docs.github.com/en/actions)
-- Vue Router的Hash模式配置
+- [Vue Router 官方文档](https://router.vuejs.org/)
+
+## Hash模式配置示例
+\`\`\`javascript
+const router = createRouter({
+  history: createWebHashHistory(),  // 使用Hash模式
+  routes
+})
+\`\`\`
+
+## 总结
+
+从Nginx到GitHub Pages，我走了不少弯路。但事实证明，对于个人博客来说，**GitHub Pages + GitHub Actions** 是一个既免费又省心的方案。虽然国内访问速度一般，但完全满足我的需求。
+
+希望这篇踩坑记录对同样想部署个人博客的你有所帮助！
     `
   }
 ]

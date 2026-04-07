@@ -77,6 +77,7 @@
 <script setup>
 import { ref, computed, onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { marked } from 'marked'
 import { getArticleById, getAdjacentArticles, getCategoryName } from '../utils/data'
 
 const route = useRoute()
@@ -87,18 +88,11 @@ const nextArticle = ref(null)
 
 const renderedContent = computed(() => {
   if (!article.value) return ''
-  // Simple markdown-like rendering
-  return article.value.content
-    .replace(/```(\w+)?\n([\s\S]*?)```/g, '<pre class="code-block"><code>$2</code></pre>')
-    .replace(/`([^`]+)`/g, '<code class="inline-code">$1</code>')
-    .replace(/### (.+)/g, '<h3>$1</h3>')
-    .replace(/## (.+)/g, '<h2>$1</h2>')
-    .replace(/# (.+)/g, '<h1>$1</h1>')
-    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*([^*]+)\*/g, '<em>$1</em>')
-    .replace(/- (.+)/g, '<li>$1</li>')
-    .replace(/\n\n/g, '</p><p>')
-    .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
+  // 使用 marked 渲染 Markdown
+  return marked(article.value.content, {
+    breaks: true,  // 支持换行
+    gfm: true      // 支持 GitHub Flavored Markdown
+  })
 })
 
 const loadArticle = () => {
@@ -297,6 +291,59 @@ watch(() => route.params.id, () => {
 
 .content-body :deep(strong) {
   color: #fff;
+}
+
+/* marked 生成的额外样式 */
+.content-body :deep(a) {
+  color: var(--primary-color);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.content-body :deep(a:hover) {
+  border-bottom-color: var(--primary-color);
+}
+
+.content-body :deep(table) {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background: var(--bg-card);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.content-body :deep(th),
+.content-body :deep(td) {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.content-body :deep(th) {
+  background: rgba(0, 255, 136, 0.1);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.content-body :deep(tr:last-child td) {
+  border-bottom: none;
+}
+
+.content-body :deep(hr) {
+  border: none;
+  height: 1px;
+  background: var(--border-color);
+  margin: 30px 0;
+}
+
+.content-body :deep(blockquote) {
+  border-left: 4px solid var(--primary-color);
+  padding-left: 20px;
+  margin: 20px 0;
+  color: var(--text-secondary);
+  font-style: italic;
 }
 
 /* Footer */
