@@ -153,13 +153,53 @@
   color: var(--primary-color);
 }
 
-/* 响应式 */
+/* 响应式 - 基础 */
 @media (max-width: 768px) {
   .section-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
   
   .container {
     padding: 0 15px;
   }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .card {
+    padding: 18px;
+  }
+}
+
+/* 超小屏幕 */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+  
+  .section-title {
+    font-size: 1.25rem;
+  }
+  
+  .btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+  
+  .card {
+    padding: 15px;
+  }
+  
+  .code-block {
+    padding: 12px;
+    font-size: 0.8rem;
+  }
+}
+
+/* 防止横向滚动 */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
 }

@@ -61,9 +61,15 @@ onUnmounted(() => {
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 15px 0;
+  padding: 12px 0;
   transition: all 0.3s ease;
   background: transparent;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 0;
+  }
 }
 
 .navbar.scrolled {
@@ -81,14 +87,14 @@ onUnmounted(() => {
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: bold;
 }
 
 .logo-icon {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 
 .logo-text {
@@ -147,14 +153,17 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .nav-links {
     position: fixed;
-    top: 70px;
+    top: 60px;
     left: 0;
     right: 0;
     background: rgba(15, 15, 35, 0.98);
+    backdrop-filter: blur(10px);
     flex-direction: column;
     padding: 20px;
     transform: translateY(-150%);
     transition: transform 0.3s ease;
+    z-index: 999;
+    border-bottom: 1px solid var(--border-color);
   }
   
   .nav-links.active {
@@ -163,6 +172,11 @@ onUnmounted(() => {
   
   .mobile-menu-btn {
     display: flex;
+  }
+  
+  .nav-link {
+    padding: 12px 16px;
+    font-size: 1rem;
   }
 }
 </style>

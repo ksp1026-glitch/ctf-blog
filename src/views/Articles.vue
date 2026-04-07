@@ -409,18 +409,158 @@ const goToArticle = (id) => {
   font-size: 0.95rem;
 }
 
+/* 平板和手机横屏 */
 @media (max-width: 768px) {
+  .articles-page {
+    padding: 80px 0 40px;
+  }
+  
+  .page-header {
+    margin-bottom: 30px;
+  }
+  
+  .page-title {
+    font-size: 1.6rem;
+  }
+  
+  .page-desc {
+    font-size: 0.95rem;
+  }
+  
+  .filters {
+    margin-bottom: 25px;
+  }
+  
+  .search-box {
+    max-width: 100%;
+  }
+  
+  .search-input {
+    padding: 12px 15px 12px 45px;
+    font-size: 0.95rem;
+  }
+  
+  .category-filters {
+    gap: 8px;
+  }
+  
+  .filter-btn {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+  
+  .filter-icon {
+    font-size: 1rem;
+  }
+  
   .article-item {
     flex-direction: column;
     align-items: flex-start;
+    padding: 18px;
   }
   
   .article-arrow {
     display: none;
   }
   
+  .article-title {
+    font-size: 1.15rem;
+  }
+  
+  .article-summary {
+    font-size: 0.9rem;
+    -webkit-line-clamp: 2;
+  }
+  
+  .article-meta {
+    gap: 10px;
+  }
+  
+  .article-date,
+  .read-time {
+    font-size: 0.8rem;
+  }
+  
+  .tag-small {
+    font-size: 0.75rem;
+    padding: 3px 8px;
+  }
+  
+  .pagination {
+    gap: 10px;
+  }
+  
+  .page-btn {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
+  
+  .page-info {
+    font-size: 0.85rem;
+  }
+}
+
+/* 超小屏幕 */
+@media (max-width: 480px) {
+  .articles-page {
+    padding: 70px 0 30px;
+  }
+  
   .page-title {
-    font-size: 2rem;
+    font-size: 1.4rem;
+  }
+  
+  .page-desc {
+    font-size: 0.85rem;
+  }
+  
+  .search-box {
+    margin-bottom: 15px;
+  }
+  
+  .category-filters {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 5px;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .category-filters::-webkit-scrollbar {
+    height: 3px;
+  }
+  
+  .filter-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  
+  .article-item {
+    padding: 15px;
+  }
+  
+  .article-title {
+    font-size: 1.05rem;
+  }
+  
+  .article-summary {
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+  }
+  
+  .article-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .pagination {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .page-btn {
+    width: 100%;
   }
 }
 </style>

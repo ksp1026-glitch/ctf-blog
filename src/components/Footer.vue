@@ -187,10 +187,88 @@ const currentYear = computed(() => new Date().getFullYear())
   51%, 100% { opacity: 0; }
 }
 
+/* 手机 */
 @media (max-width: 768px) {
+  .footer {
+    padding: 40px 0 15px;
+  }
+  
   .footer-content {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 25px;
+    margin-bottom: 30px;
+  }
+  
+  .footer-title {
+    font-size: 1.1rem;
+  }
+  
+  .footer-desc {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+  
+  .social-link {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+  
+  .footer-subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .footer-links li {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+  }
+  
+  .footer-bottom {
+    padding-top: 15px;
+  }
+  
+  .footer-bottom p {
+    font-size: 0.85rem;
+  }
+  
+  .terminal-line {
+    font-size: 0.8rem;
+    margin-top: 8px;
+  }
+}
+
+/* 超小屏幕 */
+@media (max-width: 480px) {
+  .footer {
+    padding: 30px 0 15px;
+  }
+  
+  .footer-content {
+    gap: 20px;
+  }
+  
+  .footer-title {
+    font-size: 1rem;
+  }
+  
+  .footer-desc {
+    font-size: 0.85rem;
+  }
+  
+  .footer-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .footer-links li {
+    font-size: 0.85rem;
+  }
+  
+  .footer-bottom p {
+    font-size: 0.8rem;
+  }
+  
+  .terminal-line {
+    font-size: 0.75rem;
   }
 }
 </style>

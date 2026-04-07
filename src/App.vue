@@ -24,7 +24,13 @@ import Footer from './components/Footer.vue'
 
 .main-content {
   flex: 1;
-  padding-top: 70px;
+  padding-top: 60px;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 50px;
+  }
 }
 
 * {

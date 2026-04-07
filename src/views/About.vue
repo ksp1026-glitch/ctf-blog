@@ -503,10 +503,30 @@ const tools = [
   gap: 15px;
 }
 
+/* 平板响应式 */
 @media (max-width: 968px) {
+  .about-page {
+    padding: 90px 0 50px;
+  }
+  
   .profile-card {
     flex-direction: column;
     text-align: center;
+    padding: 40px;
+    gap: 30px;
+  }
+  
+  .profile-avatar {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .avatar-text {
+    font-size: 4rem;
+  }
+  
+  .profile-name {
+    font-size: 2rem;
   }
   
   .profile-stats {
@@ -519,28 +539,249 @@ const tools = [
   
   .about-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .about-section {
+    padding: 25px;
+  }
+  
+  .chart-label {
+    min-width: 90px;
+    font-size: 0.9rem;
   }
 }
 
-@media (max-width: 480px) {
+/* 手机 */
+@media (max-width: 768px) {
+  .about-page {
+    padding: 80px 0 40px;
+  }
+  
+  .about-hero {
+    margin-bottom: 30px;
+  }
+  
   .profile-card {
     padding: 30px 20px;
   }
   
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .avatar-text {
+    font-size: 3rem;
+  }
+  
   .profile-name {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+  }
+  
+  .profile-title {
+    font-size: 1rem;
+    margin-bottom: 20px;
   }
   
   .profile-stats {
-    gap: 20px;
+    gap: 25px;
+    margin-bottom: 20px;
+  }
+  
+  .stat-value {
+    font-size: 1.5rem;
+  }
+  
+  .stat-label {
+    font-size: 0.8rem;
+  }
+  
+  .profile-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .social-link {
+    justify-content: center;
+  }
+  
+  .about-section {
+    padding: 20px;
+  }
+  
+  .about-section .section-title {
+    font-size: 1.2rem;
+    margin-bottom: 18px;
+  }
+  
+  .bio-content {
+    font-size: 0.95rem;
+  }
+  
+  .bio-content ul {
+    padding-left: 18px;
+  }
+  
+  .skills-chart {
+    gap: 15px;
+  }
+  
+  .chart-item {
+    gap: 10px;
+  }
+  
+  .chart-label {
+    min-width: 80px;
+    font-size: 0.85rem;
+  }
+  
+  .chart-icon {
+    font-size: 1.1rem;
+  }
+  
+  .chart-bar {
+    height: 8px;
+  }
+  
+  .chart-value {
+    font-size: 0.85rem;
+    min-width: 35px;
+  }
+  
+  .timeline-mini {
+    gap: 10px;
+  }
+  
+  .timeline-step {
+    padding: 12px;
+    gap: 12px;
+  }
+  
+  .step-marker {
+    width: 24px;
+    height: 24px;
+    font-size: 0.75rem;
+  }
+  
+  .step-content h4 {
+    font-size: 0.95rem;
+  }
+  
+  .step-content p {
+    font-size: 0.85rem;
   }
   
   .tools-grid {
     grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .tool-item {
+    padding: 12px;
+  }
+  
+  .tool-icon {
+    font-size: 1.5rem;
+  }
+  
+  .tool-info h4 {
+    font-size: 0.9rem;
+  }
+  
+  .tool-info p {
+    font-size: 0.8rem;
+  }
+  
+  .contact-cta {
+    padding: 30px 20px;
+  }
+  
+  .cta-content h2 {
+    font-size: 1.4rem;
+  }
+  
+  .cta-content p {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
   }
   
   .cta-buttons {
     flex-direction: column;
+    gap: 10px;
+  }
+  
+  .cta-buttons .btn {
+    width: 100%;
+  }
+}
+
+/* 超小屏幕 */
+@media (max-width: 480px) {
+  .about-page {
+    padding: 70px 0 30px;
+  }
+  
+  .profile-card {
+    padding: 25px 15px;
+  }
+  
+  .profile-avatar {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .avatar-text {
+    font-size: 2.5rem;
+  }
+  
+  .profile-name {
+    font-size: 1.4rem;
+  }
+  
+  .profile-title {
+    font-size: 0.9rem;
+  }
+  
+  .profile-stats {
+    gap: 15px;
+  }
+  
+  .stat-value {
+    font-size: 1.3rem;
+  }
+  
+  .about-section {
+    padding: 18px;
+  }
+  
+  .about-section .section-title {
+    font-size: 1.1rem;
+  }
+  
+  .bio-content {
+    font-size: 0.9rem;
+  }
+  
+  .chart-label {
+    min-width: 75px;
+    font-size: 0.8rem;
+  }
+  
+  .chart-value {
+    font-size: 0.8rem;
+  }
+  
+  .contact-cta {
+    padding: 25px 15px;
+  }
+  
+  .cta-content h2 {
+    font-size: 1.2rem;
+  }
+  
+  .cta-content p {
+    font-size: 0.85rem;
   }
 }
 </style>

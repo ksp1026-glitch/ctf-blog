@@ -434,21 +434,171 @@ watch(() => route.params.id, () => {
   visibility: hidden;
 }
 
+/* 平板和手机 */
 @media (max-width: 768px) {
+  .article-detail {
+    padding: 80px 0 40px;
+  }
+  
+  .article-header {
+    margin-bottom: 25px;
+  }
+  
+  .back-link {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+  
+  .article-meta-top {
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
   .article-title {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
   }
   
   .article-content {
-    padding: 25px;
+    padding: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .content-body {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  
+  .content-body :deep(h1) {
+    font-size: 1.5rem;
+    margin: 30px 0 15px;
+  }
+  
+  .content-body :deep(h2) {
+    font-size: 1.3rem;
+    margin: 25px 0 12px;
+  }
+  
+  .content-body :deep(h3) {
+    font-size: 1.1rem;
+    margin: 20px 0 10px;
+  }
+  
+  .content-body :deep(p) {
+    margin-bottom: 15px;
+  }
+  
+  .content-body :deep(pre.code-block) {
+    padding: 15px;
+    margin: 15px 0;
+  }
+  
+  .content-body :deep(pre code) {
+    font-size: 0.8rem;
+  }
+  
+  .content-body :deep(ul) {
+    padding-left: 20px;
+    margin: 10px 0;
+  }
+  
+  .content-body :deep(li) {
+    margin-bottom: 6px;
+  }
+  
+  .content-body :deep(table) {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 0.9rem;
+  }
+  
+  .content-body :deep(th),
+  .content-body :deep(td) {
+    padding: 10px 12px;
+  }
+  
+  .tag-item {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+  }
+  
+  .share-section {
+    margin-bottom: 35px;
+  }
+  
+  .share-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .share-btn {
+    width: 100%;
+    padding: 12px;
   }
   
   .article-nav {
     grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .nav-card {
+    padding: 18px;
   }
   
   .nav-card.next {
     text-align: left;
+  }
+  
+  .nav-label {
+    font-size: 0.8rem;
+  }
+  
+  .nav-title {
+    font-size: 1rem;
+  }
+}
+
+/* 超小屏幕 */
+@media (max-width: 480px) {
+  .article-detail {
+    padding: 70px 0 30px;
+  }
+  
+  .article-title {
+    font-size: 1.2rem;
+  }
+  
+  .article-content {
+    padding: 15px;
+  }
+  
+  .content-body {
+    font-size: 0.9rem;
+  }
+  
+  .content-body :deep(h1) {
+    font-size: 1.3rem;
+  }
+  
+  .content-body :deep(h2) {
+    font-size: 1.15rem;
+  }
+  
+  .content-body :deep(h3) {
+    font-size: 1rem;
+  }
+  
+  .content-body :deep(pre code) {
+    font-size: 0.75rem;
+  }
+  
+  .nav-card {
+    padding: 15px;
+  }
+  
+  .nav-title {
+    font-size: 0.9rem;
   }
 }
 </style>
