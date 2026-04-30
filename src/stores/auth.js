@@ -16,7 +16,7 @@ export function useAuth() {
   function login(username, password) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (username === 'admin' && password === 'ctf2024') {
+        if (username === 'homo' && password === 'Hhwasdfg6') {
           const user = { username, role: 'admin' }
           const token = 'token_' + Date.now()
           state.user = user
