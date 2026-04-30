@@ -44,13 +44,12 @@ const router = createRouter({
 
 const WHITE_LIST = ['Login']
 
-router.beforeEach((to, _from, next) => {
+router.beforeEach((to) => {
   if (!isAuthenticated() && !WHITE_LIST.includes(to.name)) {
-    next({ name: 'Login' })
-  } else if (isAuthenticated() && to.name === 'Login') {
-    next({ name: 'Home' })
-  } else {
-    next()
+    return { name: 'Login' }
+  }
+  if (isAuthenticated() && to.name === 'Login') {
+    return { name: 'Home' }
   }
 })
 

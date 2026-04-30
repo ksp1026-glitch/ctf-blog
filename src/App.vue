@@ -1,16 +1,26 @@
 <template>
   <div class="app">
-    <Navbar />
-    <main class="main-content">
+    <template v-if="showShell">
+      <Navbar />
+      <main class="main-content">
+        <router-view />
+      </main>
+      <Footer />
+    </template>
+    <template v-else>
       <router-view />
-    </main>
-    <Footer />
+    </template>
   </div>
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 import Navbar from './components/Navbar.vue'
 import Footer from './components/Footer.vue'
+
+const route = useRoute()
+const showShell = computed(() => route.name !== 'Login')
 </script>
 
 <style>

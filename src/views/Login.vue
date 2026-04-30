@@ -127,7 +127,7 @@ async function handleLogin() {
 
 <style scoped>
 .login-page {
-  min-height: calc(100vh - 60px);
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -430,7 +430,7 @@ async function handleLogin() {
 @media (max-width: 768px) {
   .login-page {
     padding: 20px 15px;
-    min-height: calc(100vh - 50px);
+    min-height: 100vh;
   }
 
   .login-container {

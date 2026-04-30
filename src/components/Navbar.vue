@@ -75,7 +75,7 @@ const handleLogout = () => {
   logout()
   userMenuOpen.value = false
   closeMenu()
-  router.push('/')
+  router.push({ name: 'Login' })
 }
 
 onMounted(() => {
