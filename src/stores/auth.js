@@ -5,6 +5,10 @@ const state = reactive({
   token: localStorage.getItem('ctfblog_token') || null,
 })
 
+export function isAuthenticated() {
+  return !!localStorage.getItem('ctfblog_token')
+}
+
 export function useAuth() {
   const isLoggedIn = computed(() => !!state.token)
   const currentUser = computed(() => state.user)

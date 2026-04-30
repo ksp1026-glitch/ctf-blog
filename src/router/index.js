@@ -4,6 +4,7 @@ import Articles from '../views/Articles.vue'
 import ArticleDetail from '../views/ArticleDetail.vue'
 import About from '../views/About.vue'
 import Login from '../views/Login.vue'
+import { isAuthenticated } from '../stores/auth.js'
 
 const routes = [
   {
@@ -38,6 +39,18 @@ const router = createRouter({
   routes,
   scrollBehavior() {
     return { top: 0 }
+  }
+})
+
+const WHITE_LIST = ['Login']
+
+router.beforeEach((to, _from, next) => {
+  if (!isAuthenticated() && !WHITE_LIST.includes(to.name)) {
+    next({ name: 'Login' })
+  } else if (isAuthenticated() && to.name === 'Login') {
+    next({ name: 'Home' })
+  } else {
+    next()
   }
 })
 
